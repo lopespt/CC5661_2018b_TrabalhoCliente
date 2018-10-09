@@ -59,6 +59,7 @@ void send_solution(string url, json s){
         if(res != CURLE_OK){
             cout << "Erro recebido do servidor" << endl;
         }
+        
         curl_slist_free_all(headers);
         curl_easy_cleanup(curl);
 }
@@ -77,7 +78,7 @@ void connect(string url, int idGrupo, function<json(json, unsigned int)> func){
         if(is_prob){
             resp["solucao"] = func(prob,numProb++);
             resp["uuid"] = j["uuid"];
-            send_solution("http://localhost:6000/solucao", resp);
+            send_solution(url+"/solucao", resp);
         }else{
             //command(j)
             cout << "is command" << endl;

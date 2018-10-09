@@ -1,0 +1,1 @@
+docker run --rm --net host -v "`pwd`":/usr/src/myapp rikorose/gcc-cmake:latest /usr/src/myapp/docker_cmd.sh

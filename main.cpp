@@ -30,7 +30,7 @@ json probOrdenacao(json m){
 json trata_problema(json j,unsigned int numProb){
     // cout << j.dump() << endl;  // <---imprime o json do problema recebido
     // veja como manipular o json em https://github.com/nlohmann/json
-    
+
     if(numProb % 100 == 0)
         cout << "Quantidade de Problemas Recebidos: " << numProb << endl;
     if(j["tipo"] == "grafo"){
@@ -47,7 +47,7 @@ json trata_problema(json j,unsigned int numProb){
 
 int main(int argc, char const *argv[])
 {
-    connect("http://localhost:6000",1534, trata_problema);
+    connect("http://localhost:5000",1534, trata_problema);
 
     
     /* code */
