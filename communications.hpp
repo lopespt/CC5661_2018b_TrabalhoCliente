@@ -71,6 +71,9 @@ void connect(string url, int idGrupo, function<json(json, unsigned int)> func){
     while(1){
         json j = receive_problem(url, idGrupo);
         json prob = j["problema"];
+        if(prob.is_null())
+            continue;
+
         json resp;
         array<string,3> tipos={"grafo", "ordenacao", "multiplicacao_matrizes"};
 

@@ -2,8 +2,19 @@
 #define UTILS_HPP
 #include "matrixAdapter.hpp"
 #include "json.hpp"
-
+#include <iostream>
+using namespace std;
 using namespace nlohmann;
+
+template <typename T>
+ostream& operator<<(ostream &out, const vector<T>& x){
+    out << "[ ";
+    for(auto i : x){
+        out  << i << ", ";
+    }
+    out << " ]";
+    return out;
+}
 
 template <typename T>
 MatrixAdapter<T> jsonToMatrix(json m){
